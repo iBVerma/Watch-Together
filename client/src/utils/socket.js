@@ -10,7 +10,7 @@ export const createConnection = (name, roomId = null, videoId = null) => {
 
   return new Promise((resolve) => {
     // Replace 'http://your-server-url.com' with the actual URL of your socket.io server
-    const socket = io('http://your-server-url.com', { path: '/socket' });
+    const socket = io('https://watchtogether-server-kwb53ftrt-ibverma.vercel.app', { path: '/socket' });
 
     // Listen for the 'connect' event, indicating the connection is established
     socket.on('connect', () => {
