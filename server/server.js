@@ -11,7 +11,7 @@ const io = require('socket.io')(server, {
 
 const PORT = process.env.PORT || 3005;
 
-app.get('/test', (req, res, next) => {
+app.get('/', (req, res, next) => {
 	console.log("Running");
 	res.send({ message: 'Hello World' });
 });
