@@ -11,11 +11,11 @@ const io = require('socket.io')(server, {
 
 const PORT = process.env.PORT || 3005;
 
-app.get('/', (req, res, next) => {
-	console.log("Running");
-	res.send("Hello");
-	// res.send({ message: 'Hello World' });
-});
+// app.get('/', (req, res, next) => {
+// 	console.log("Running");
+// 	res.send("Hello");
+// 	// res.send({ message: 'Hello World' });
+// });
 
 ioUtils.setupIO(io);
 
