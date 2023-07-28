@@ -5,7 +5,7 @@ const ioUtils = require('./utils/io');
 
 const io = require('socket.io')(server, {
 	path: '/socket',
-	origins: ['https://watchtogether-delta.vercel.app'],
+	origins: ['https://watchtogether-delta.vercel.app/'],
 	serveClient: false,
 });
 
