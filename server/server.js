@@ -13,7 +13,8 @@ const PORT = process.env.PORT || 3005;
 
 app.get('/test', (req, res, next) => {
 	console.log("Running");
-	res.send({ message: 'Hello World' });
+	res.send("Hello");
+	// res.send({ message: 'Hello World' });
 });
 
 ioUtils.setupIO(io);
