@@ -28,6 +28,10 @@ function Welcome(props) {
 		console.log(videoUrl);
 		const socket = await createConnection(username, null, videoId);
 		setHostLoading(false);
+		console.log("Running man!");
+		console.log(socket.id);
+		console.log(username);
+		console.log(videoId);
 
 		props.history.push({
 			pathname: `/room/${socket.id}`, // socket.id === roomid
