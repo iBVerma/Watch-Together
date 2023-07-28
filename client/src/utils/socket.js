@@ -1,26 +1,33 @@
 
 import { showToast } from '../utils/helper';
-import io from "socket.io-client";
-
+import { io } from 'socket.io-client';
 
 export const createConnection = (name, roomId = null, videoId = null) => {
-	// create the socket connection with socket server
-	console.log(name);
-	console.log(videoId);
-	console.log("Socket");
-	return new Promise((resolve) => {
-		const socket = io(process.env.REACT_APP_SERVER, { path: '/socket' });
-		socket.on('connect', () => {
-			socket.emit('join', {
-				roomId: roomId || socket.id,
-				name,
-				userId: socket.id,
-				videoId,
-			});
-			resolve(socket);
-		});
-	});
+  // Log the name and videoId (for debugging purposes)
+  console.log(name);
+  console.log(videoId);
+  console.log("Socket");
+
+  return new Promise((resolve) => {
+    // Replace 'http://your-server-url.com' with the actual URL of your socket.io server
+    const socket = io('http://your-server-url.com', { path: '/socket' });
+
+    // Listen for the 'connect' event, indicating the connection is established
+    socket.on('connect', () => {
+      // Emit the 'join' event to the server with the provided data
+      socket.emit('join', {
+        roomId: roomId || socket.id,
+        name,
+        userId: socket.id,
+        videoId,
+      });
+
+      // Resolve the Promise with the socket object, making it available to the caller
+      resolve(socket);
+    });
+  });
 };
+
 
 export const bindSocketEvents = (socket, dispatchFunc) => {
 	if (!socket) return;
