@@ -8,7 +8,7 @@ export const createConnection = (name, roomId = null, videoId = null) => {
 	console.log(videoId);
 	console.log("Socket");
 	return new Promise((resolve) => {
-		const socket = io("http://localhost:3005", {withCredentials:false});
+		const socket = io("https://watchtogether-server.vercel.app", {withCredentials:false});
 		socket.on('connect', () => {
 			socket.emit('join', {
 				roomId: roomId || socket.id,
