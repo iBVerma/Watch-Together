@@ -6,7 +6,7 @@ const ioUtils = require('./utils/io');
 const io = require('socket.io')(server, {
 	cors :{
 		// path: '/socket',
-		origin: 'http://localhost:3000',
+		origin: 'https://watchtogether-opal.vercel.app',
 		methods: ["GET","POST"], 
 		credentials: true, 
 		transport: ["websocket","polling"] 
