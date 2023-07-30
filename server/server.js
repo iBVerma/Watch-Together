@@ -4,15 +4,19 @@ const server = require('http').createServer(app);
 const ioUtils = require('./utils/io');
 
 const io = require('socket.io')(server, {
-	path: '/socket',
-	origins: ['https://redparty.netlify.app'],
-	serveClient: false,
+	cors :{
+		// path: '/socket',
+		origin: 'http://localhost:3000',
+		methods: ["GET","POST"], 
+		credentials: true, 
+		transport: ["websocket","polling"] 
+	}, 
+	allowEIO3: true 
 });
 
 const PORT = process.env.PORT || 3005;
 
 app.get('/test', (req, res, next) => {
-	console.log("Running");
 	res.send({ message: 'Hello World' });
 });
 

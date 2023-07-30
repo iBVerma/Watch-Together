@@ -2,14 +2,13 @@
 import { showToast } from '../utils/helper';
 import io from "socket.io-client";
 
-
 export const createConnection = (name, roomId = null, videoId = null) => {
 	// create the socket connection with socket server
 	console.log(name);
 	console.log(videoId);
 	console.log("Socket");
 	return new Promise((resolve) => {
-		const socket = io(process.env.REACT_APP_SERVER, { path: '/socket' });
+		const socket = io("http://localhost:3005", {withCredentials:false});
 		socket.on('connect', () => {
 			socket.emit('join', {
 				roomId: roomId || socket.id,

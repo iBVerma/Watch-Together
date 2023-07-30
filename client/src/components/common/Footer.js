@@ -17,15 +17,15 @@ const Footer = (props) => (
 			></ion-icon>
 			&nbsp;by&nbsp;
 			<a
-				href='https://github.com/ahmedsadman'
+				href='https://github.com/iBVerma'
 				target='_blank'
 				rel='noopener noreferrer'
 			>
-				ahmedsadman
+				Brijesh Verma
 			</a>
 			&nbsp;(Source at&nbsp;
 			<a
-				href='https://github.com/ahmedsadman/redparty'
+				href='https://github.com/iBVerma/Watchtogether'
 				target='_blank'
 				rel='noopener noreferrer'
 			>
@@ -39,11 +39,11 @@ const Footer = (props) => (
 		<div>
 			Logo by{' '}
 			<a
-				href='https://github.com/IshrakAbedin'
+				href='https://github.com/iBVerma'
 				target='_blank'
 				rel='noopener noreferrer'
 			>
-				IshrakAbedin
+				Brijesh Verma
 			</a>
 		</div>
 	</StyledFooter>

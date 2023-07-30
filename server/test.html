@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Socket.IO Connection Test</title>
+</head>
+<body>
+  <h1>Socket.IO Connection Test</h1>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.1/socket.io.js"></script>
+  <script>
+    // Replace 'http://localhost:3001' with the URL of your Socket.IO server
+    const socket = io('http://localhost:3001');
+
+    socket.on('connect', () => {
+      console.log('Connected to Socket.IO server!');
+    });
+
+    socket.on('disconnect', () => {
+      console.log('Disconnected from Socket.IO server!');
+    });
+
+    // Customize this to listen for specific events from the server
+    socket.on('message', (data) => {
+      console.log('Received message from server:', data);
+    });
+  </script>
+</body>
+</html>
