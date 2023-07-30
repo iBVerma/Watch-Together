@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
     "version": 2,
     "name": "watchtogether",
@@ -8,3 +9,15 @@
        { "src": "/(.*)", "dest": "/app.js" }
     ]
  }
+=======
+{
+    "version": 2,
+    "name": "watchtogether",
+    "builds": [
+       { "src": "server.js", "use": "@vercel/node" }
+    ],
+    "routes": [
+       { "src": "/(.*)", "dest": "/app.js" }
+    ]
+ }
+>>>>>>> 1745356ed88ae1f0c10725186875c4546f30fc46

@@ -21,19 +21,29 @@ function Welcome(props) {
 	};
 
 	const onHost = async (username, videoUrl) => {
-		// use socket id as room address
-		setHostLoading(true);
-		const videoId = getVideoId(videoUrl);
-		console.log(username);
-		console.log(videoUrl);
-		const socket = await createConnection(username, null, videoId);
-		setHostLoading(false);
-
-		props.history.push({
-			pathname: `/room/${socket.id}`, // socket.id === roomid
-			state: { hostId: socket.id, username, videoId },
-			socket,
-		});
+	  // use socket id as room address
+	  setHostLoading(true);
+	  const videoId = getVideoId(videoUrl);
+	  console.log(username);
+	  console.log(videoUrl);
+	
+	  try {
+	    const socket = await createConnection(username, null, videoId); // Create a socket connection
+	    setHostLoading(false);
+	    console.log("Running man!");
+	    console.log(socket.id);
+	    console.log(username);
+	    console.log(videoId);
+	
+	    props.history.push({
+	      pathname: `/room/${socket.id}`, // socket.id === roomid
+	      state: { hostId: socket.id, username, videoId },
+	      socket,
+	    });
+	  } catch (error) {
+	    // Handle any errors that occurred during the connection process
+	    console.error('Error creating connection:', error);
+	  }
 	};
 
 	const onJoin = (username, joinUrl) => {

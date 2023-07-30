@@ -1,5 +1,6 @@
 
 import { showToast } from '../utils/helper';
+<<<<<<< HEAD
 import io from "socket.io-client";
 
 export const createConnection = (name, roomId = null, videoId = null) => {
@@ -19,7 +20,36 @@ export const createConnection = (name, roomId = null, videoId = null) => {
 			resolve(socket);
 		});
 	});
+=======
+import { io } from 'socket.io-client';
+
+export const createConnection = (name, roomId = null, videoId = null) => {
+  // Log the name and videoId (for debugging purposes)
+  console.log(name);
+  console.log(videoId);
+  console.log("Socket");
+
+  return new Promise((resolve) => {
+    // Replace 'http://your-server-url.com' with the actual URL of your socket.io server
+    const socket = io('https://watchtogether-server.vercel.app/', { path: '/socket' });
+
+    // Listen for the 'connect' event, indicating the connection is established
+    socket.on('connect', () => {
+      // Emit the 'join' event to the server with the provided data
+      socket.emit('join', {
+        roomId: roomId || socket.id,
+        name,
+        userId: socket.id,
+        videoId,
+      });
+
+      // Resolve the Promise with the socket object, making it available to the caller
+      resolve(socket);
+    });
+  });
+>>>>>>> 1745356ed88ae1f0c10725186875c4546f30fc46
 };
+
 
 export const bindSocketEvents = (socket, dispatchFunc) => {
 	if (!socket) return;
